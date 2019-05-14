@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+        <script src="script/jaja.js" type="text/javascript"></script>
+            
+		<title>Mandados</title>
+
+	</head>
+
+    <body> <!--acordarse de poner las funciones onload-->
+        
+        <!--Ingreso de tareas-->
+        <header>
+			<input type="text" placeholder="Ingrese una tarea..." id="item">
+			<button type="button" id="add">
+				Enviar <!--acá va el svg ese para armar el botoncito hermoso -->
+			</button>
+		</header>
+
+        <!--Lista de tareas-->
+		<div class="container">
+			<!-- Tareas pendientes -->
+			<ul class="todo" id="todo"></ul>
+			<!-- Tareas concluidas -->
+			<ul class="todo" id="completed"></ul>
+		</div>
+
+    </body>
+
+</html>
