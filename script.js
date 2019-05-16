@@ -22,4 +22,4 @@ var addButtons=function(){
     buttonCheck.classList.add('check')
 }*/
 
-// al li habria que agregarle un div como hijo y que este tenga dos botones. uno para remover y otro para chequear. estos botones tienen que tener eventos onclick(). cuando la persona haga click en el boton de chequeo, el li debera agregarse en el ul con la clase completed. si ya estaba en este ultimo, vuelve al ul inicial que es el que tiene la clase toDo. si la persona hace click en el boton de remover, se elimina la tarea.
+/* al li habria que agregarle un div como hijo y que este tenga dos botones. uno para remover y otro para chequear. estos botones tienen que tener eventos onclick(). cuando la persona haga click en el boton de chequeo, el li debera agregarse en el ul con la clase completed. si ya estaba en este ultimo, vuelve al ul inicial que es el que tiene la clase toDo. si la persona hace click en el boton de remover, se elimina la tarea.*/
