@@ -11,15 +11,21 @@ var addTask=function(){
     //busca en el dom el ul que tiene como id 'toDo' y le agrega un hijo: el li que creamos antes
     toDo=document.getElementById('toDo')
     toDo.appendChild(container)
-}
-/*
-var addButtons=function(){
-    var divButton=document.createElement('div')
-    divButton.classList.add('button')
-    var buttonRemove=document.createElement('button')
-    var buttonCheck=document.createElement('button')
-    buttonRemove.classList.add('remove')
-    buttonCheck.classList.add('check')
-}*/
+    // creo un div para contener los dos botones, estos tambien los creo. a los tres elementos les doy una clase asi se le pueden agregar los estilos. despues los agrego como hijos del li
+    var containerButtons=document.createElement('div')
+    containerButtons.classList.add('button')
+    container.appendChild(containerButtons)
 
-/* al li habria que agregarle un div como hijo y que este tenga dos botones. uno para remover y otro para chequear. estos botones tienen que tener eventos onclick(). cuando la persona haga click en el boton de chequeo, el li debera agregarse en el ul con la clase completed. si ya estaba en este ultimo, vuelve al ul inicial que es el que tiene la clase toDo. si la persona hace click en el boton de remover, se elimina la tarea.*/
+    var buttonRemove=document.createElement('button')
+    buttonRemove.classList.add('remove')
+    containerButtons.appendChild(buttonRemove)
+
+    var buttonCheck=document.createElement('button')
+    buttonCheck.classList.add('check')
+    containerButtons.appendChild(buttonCheck)
+    //crea el evento onclick
+    buttonCheck.onclick=function(){
+        //tiene que hacer que la tarea ya no figure en el ul toDo sino que en el completed
+    }
+    
+}
