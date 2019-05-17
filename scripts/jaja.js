@@ -1,6 +1,6 @@
 //una función que escriba un texto en pantalla cuando la lista está vacía (no sé si tienen que ser 2... discutamos) - esta es onload
 var listas = [
-    {id:"todo", textEmpty:"¡No hay tareas pendientes!"},
+    {id:"toDo", textEmpty:"¡No hay tareas pendientes!"},
     {id:"completed", textEmpty:"Todavía no completaste ninguna tarea."}
 ]
 
