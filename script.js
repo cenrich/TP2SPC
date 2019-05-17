@@ -15,25 +15,21 @@ var addTask=function(){
     containerButtons.classList.add('button')
     container.appendChild(containerButtons)
 
-    var buttonRemove=document.createElement('button')
-    buttonRemove.classList.add('remove')
-    containerButtons.appendChild(buttonRemove)
-
-    var buttonCheck=document.createElement('button')
-    buttonCheck.classList.add('check')
-    containerButtons.appendChild(buttonCheck)
+    createButtons('remove')
+    createButtons('check')
+    containerButtons.appendChild(createButtons('remove'))
+    containerButtons.appendChild(createButtons('check'))
 
     var containerTask=document.getElementsByClassName('toDo')
     var completed=document.getElementById("completed")
-
-    buttonCheck.onclick=function(){
-        completed.appendChild(container)
-    }
-
-    buttonRemove.onclick=function(){
-        var completed=document.getElementById("completed")
-        toDo.removeChild(container)
-    }
-
 }
 // hay que mejorar la funcion para que quede mas chica, como vimos en clase. dividirla en pequeñas funciones
+
+var createButtons=function(classBtn, name){
+    var btn=document.createElement('button')
+    btn.classList.add(classBtn)
+    btn.onclick=function(){
+        //como crear la funcion onclick
+    }
+    return btn
+}
