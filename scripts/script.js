@@ -1,31 +1,46 @@
-// funcion que toma lo que se ingresa en el input, lo guarda y lo imprime en pantalla por debajo como tarea pendiente
+var allTasks=[]
+var item, task, toDo, completed
 
-var item, task, toDo, container
+var keyPress=function(event){
+    if(event.code === 'Enter'){
+        addTask()
+        }
+}
+
+var printTask=function(){
+    toDo=document.getElementById('toDo')
+    toDo.innerHTML=''
+
+    allTasks.map(function(e){
+        var container=document.createElement('li')
+        container.innerText=e.text
+    
+        toDo.appendChild(container)
+            
+        var containerButtons=document.createElement('div')
+        containerButtons.classList.add('button')
+        container.appendChild(containerButtons)
+
+        createButton('remove')
+        createButton('check')
+        containerButtons.appendChild(createButton('remove'))
+        containerButtons.appendChild(createButton('check'))
+        completed=document.getElementById('completed')
+    })
+}
+
 var addTask=function(){
     item=document.getElementById('item')
     task=item.value
-
-    container=document.createElement('li')
-    container.innerText=task
-
-    toDo=document.getElementById('toDo')
-    toDo.appendChild(container)
-
-    var containerButtons=document.createElement('div')
-    containerButtons.classList.add('button')
-    container.appendChild(containerButtons)
-
-    createButtons('remove')
-    createButtons('check')
-    containerButtons.appendChild(createButtons('remove'))
-    containerButtons.appendChild(createButtons('check'))
-
-    var containerTask=document.getElementsByClassName('toDo')
-    var completed=document.getElementById("completed")
+    
+    if (task !== ''){
+    item.value=''
+    allTasks.unshift({text:task, toDo: true}) 
+    printTask()
+    }
 }
-// hay que mejorar la funcion para que quede mas chica, como vimos en clase. dividirla en pequeñas funciones
 
-var createButtons=function(classBtn, name){
+var createButton=function(classBtn, name){
     var btn=document.createElement('button')
     btn.classList.add(classBtn)
     btn.onclick=function(){
