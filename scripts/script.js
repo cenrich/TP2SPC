@@ -1,31 +1,51 @@
 var allTasks=[]
-var item, task, toDo, completed
+var item, task, toDo, completed, container, containerButtons
 
 var keyPress=function(event){
     if(event.code === 'Enter'){
         addTask()
-        }
+    }
+}
+var toggleTask=function(btn){
+    allTasks[btn.id].isCompleted= !allTasks[btn.id].isCompleted
+    printTask()
 }
 
+var deleteTask=function(btn){
+    allTasks.splice(btn.id, 1)
+    printTask()
+}
+var createButton=function(classBtn, name, index, btnFunction){
+    btn=document.createElement('button')
+    btn.classList.add(classBtn)
+    btn.innerText=name
+    btn.id=index
+    btn.onclick=function(){btnFunction(this)}
+    return btn
+}
 var printTask=function(){
     toDo=document.getElementById('toDo')
     toDo.innerHTML=''
+    completed=document.getElementById('completed')
+    completed.innerHTML=''
 
-    allTasks.map(function(e){
-        var container=document.createElement('li')
+
+    allTasks.map(function(e, i){
+        container=document.createElement('li')
         container.innerText=e.text
-    
-        toDo.appendChild(container)
-            
-        var containerButtons=document.createElement('div')
+
+        containerButtons=document.createElement('div')
         containerButtons.classList.add('button')
         container.appendChild(containerButtons)
 
-        createButton('remove')
-        createButton('check')
-        containerButtons.appendChild(createButton('remove'))
-        containerButtons.appendChild(createButton('check'))
-        completed=document.getElementById('completed')
+        containerButtons.appendChild(createButton('remove', 'remove', i, deleteTask))
+        containerButtons.appendChild(createButton('check', 'check', i, toggleTask))
+
+        if(e.isCompleted){
+            completed.appendChild(container)
+        }else{
+            toDo.appendChild(container)
+        }
     })
 }
 
@@ -35,16 +55,7 @@ var addTask=function(){
     
     if (task !== ''){
     item.value=''
-    allTasks.unshift({text:task, toDo: true}) 
+    allTasks.unshift({text:task, isCompleted: false}) 
     printTask()
     }
-}
-
-var createButton=function(classBtn, name){
-    var btn=document.createElement('button')
-    btn.classList.add(classBtn)
-    btn.onclick=function(){
-        //como crear la funcion onclick
-    }
-    return btn
 }
