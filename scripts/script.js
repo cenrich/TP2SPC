@@ -5,7 +5,11 @@ var item, container, containerButtons, listItem
 var keyPress=function(event){
     if(event.code === 'Enter'){
         addTask()
-        }
+    }
+}
+var toggleTask=function(btn){
+    allTasks[btn.id].isCompleted= !allTasks[btn.id].isCompleted
+    printTask()
 }
 
 var toggleTask = function (btn) {
@@ -18,9 +22,12 @@ var deleteTask=function (btn) {
     printTask()
 }
 
-var createButton=function(btnFunction,btnId){
-    var btn=document.createElement('button')
-    btn.id=btnId
+
+var createButton=function(classBtn, name, index, btnFunction){
+    btn=document.createElement('button')
+    btn.classList.add(classBtn)
+    btn.innerText=name
+    btn.id=index
     btn.onclick=function(){btnFunction(this)}
     return btn
 }
@@ -31,8 +38,8 @@ var createLi = function (task,index) {
 
     containerButtons=document.createElement('div')
     containerButtons.classList.add('button')
-    containerButtons.appendChild(createButton(toggleTask,index))
-    containerButtons.appendChild(createButton(deleteTask,index))
+    containerButtons.appendChild(createButton('toggle','toggle', index,toggleTask))
+    containerButtons.appendChild(createButton('remove','remove',index,deleteTask))
     
     listItem.appendChild(containerButtons)
     return listItem
