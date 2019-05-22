@@ -1,6 +1,9 @@
 var allTasks=[]
-var task = {}
-var item, container, containerButtons, listItem
+var completed, containerButtons, item, listItem, newTask, toDo
+
+var textWhenEmpty = function () {
+    console.log("besitos")
+}    
 
 var keyPress=function(event){
     if(event.code === 'Enter'){
@@ -22,7 +25,6 @@ var deleteTask=function (btn) {
     printTask()
 }
 
-
 var createButton=function(classBtn, name, index, btnFunction){
     btn=document.createElement('button')
     btn.classList.add(classBtn)
@@ -34,7 +36,7 @@ var createButton=function(classBtn, name, index, btnFunction){
 
 var createLi = function (task,index) {
     listItem = document.createElement('li')
-    listItem.innerText=task.text //repasar esto
+    listItem.innerText=task.text
 
     containerButtons=document.createElement('div')
     containerButtons.classList.add('button')
@@ -46,23 +48,20 @@ var createLi = function (task,index) {
 }
 
 var printTask=function(){
-    var toDo=document.getElementById('toDo')
+    toDo=document.getElementById('toDo')
     toDo.innerHTML=''
 
-    var completed=document.getElementById('completed')
+    completed=document.getElementById('completed')
     completed.innerHTML=''
     
     allTasks.map(function(task, index){
-        if (task.isCompleted==false) {
-        toDo.appendChild (createLi(task,index))} else {
-        completed.appendChild (createLi(task,index))
-        }
+        task.isCompleted? completed.appendChild (createLi(task,index)) : toDo.appendChild (createLi(task,index))
     })
 }
 
 var addTask=function(){
     item=document.getElementById('item')
-    var newTask=item.value
+    newTask=item.value
     
     if (newTask !== ''){
     item.value=''
@@ -70,6 +69,3 @@ var addTask=function(){
     printTask()
     }
 }
-
-
-
