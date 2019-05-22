@@ -1,5 +1,6 @@
 var allTasks=[]
-var item, task, toDo, completed
+var task = {}
+var item, container, containerButtons, listItem
 
 var keyPress=function(event){
     if(event.code === 'Enter'){
@@ -7,44 +8,61 @@ var keyPress=function(event){
         }
 }
 
+var toggleTask = function (btn) {
+    allTasks[btn.id].isCompleted=!allTasks[btn.id].isCompleted
+    printTask()
+}
+
+var deleteTask=function (btn) {
+    allTasks.splice (btn.id,1)
+    printTask()
+}
+
+var createButton=function(btnFunction,btnId){
+    var btn=document.createElement('button')
+    btn.id=btnId
+    btn.onclick=function(){btnFunction(this)}
+    return btn
+}
+
+var createLi = function (task,index) {
+    listItem = document.createElement('li')
+    listItem.innerText=task.text //repasar esto
+
+    containerButtons=document.createElement('div')
+    containerButtons.classList.add('button')
+    containerButtons.appendChild(createButton(toggleTask,index))
+    containerButtons.appendChild(createButton(deleteTask,index))
+    
+    listItem.appendChild(containerButtons)
+    return listItem
+}
+
 var printTask=function(){
-    toDo=document.getElementById('toDo')
+    var toDo=document.getElementById('toDo')
     toDo.innerHTML=''
 
-    allTasks.map(function(e){
-        var container=document.createElement('li')
-        container.innerText=e.text
+    var completed=document.getElementById('completed')
+    completed.innerHTML=''
     
-        toDo.appendChild(container)
-            
-        var containerButtons=document.createElement('div')
-        containerButtons.classList.add('button')
-        container.appendChild(containerButtons)
-
-        createButton('remove')
-        createButton('check')
-        containerButtons.appendChild(createButton('remove'))
-        containerButtons.appendChild(createButton('check'))
-        completed=document.getElementById('completed')
+    allTasks.map(function(task, index){
+        if (task.isCompleted==false) {
+        toDo.appendChild (createLi(task,index))} else {
+        completed.appendChild (createLi(task,index))
+        }
     })
 }
 
 var addTask=function(){
     item=document.getElementById('item')
-    task=item.value
+    var newTask=item.value
     
-    if (task !== ''){
+    if (newTask !== ''){
     item.value=''
-    allTasks.unshift({text:task, toDo: true}) 
+    allTasks.unshift({text:newTask, isCompleted: false}) 
     printTask()
     }
 }
 
-var createButton=function(classBtn, name){
-    var btn=document.createElement('button')
-    btn.classList.add(classBtn)
-    btn.onclick=function(){
-        //como crear la funcion onclick
-    }
-    return btn
-}
+
+
