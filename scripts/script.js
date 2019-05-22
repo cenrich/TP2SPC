@@ -2,8 +2,20 @@ var allTasks=[]
 var completed, containerButtons, item, listItem, newTask, toDo
 
 var textWhenEmpty = function () {
-    console.log("besitos")
-}    
+    if (toDo.getElementsByTagName("li").length < 1) {
+            var text = document.createElement("li")
+            text.classList.add ("empty")
+            text.innerText ="¡No tienes tareas pendientes!"
+            toDo.appendChild(text)
+        }
+
+    if (completed.getElementsByTagName("li").length < 1) {
+        var text = document.createElement("li")
+        text.classList.add ("empty")
+        text.innerText ="No has completado tareas."
+        completed.appendChild(text)
+    }
+} 
 
 var keyPress=function(event){
     if(event.code === 'Enter'){
@@ -57,6 +69,8 @@ var printTask=function(){
     allTasks.map(function(task, index){
         task.isCompleted? completed.appendChild (createLi(task,index)) : toDo.appendChild (createLi(task,index))
     })
+
+    textWhenEmpty()
 }
 
 var addTask=function(){
