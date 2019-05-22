@@ -1,20 +1,13 @@
 var allTasks=[]
 var completed, containerButtons, item, listItem, newTask, toDo
 
-var textWhenEmpty = function () {
-    if (toDo.getElementsByTagName("li").length < 1) {
+var textWhenEmpty = function (list, textEmpty) {
+    if (list.getElementsByTagName("li").length < 1) {
             var text = document.createElement("li")
             text.classList.add ("empty")
-            text.innerText ="¡No tienes tareas pendientes!"
-            toDo.appendChild(text)
+            text.innerText =textEmpty
+            list.appendChild(text)
         }
-
-    if (completed.getElementsByTagName("li").length < 1) {
-        var text = document.createElement("li")
-        text.classList.add ("empty")
-        text.innerText ="No has completado tareas."
-        completed.appendChild(text)
-    }
 } 
 
 var keyPress=function(event){
@@ -70,7 +63,8 @@ var printTask=function(){
         task.isCompleted? completed.appendChild (createLi(task,index)) : toDo.appendChild (createLi(task,index))
     })
 
-    textWhenEmpty()
+    textWhenEmpty(toDo, '¡No tienes tareas pendientes!')
+    textWhenEmpty(completed, 'No hay tareas completas.')
 }
 
 var addTask=function(){
