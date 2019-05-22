@@ -15,10 +15,6 @@ var keyPress=function(event){
         addTask()
     }
 }
-var toggleTask=function(btn){
-    allTasks[btn.id].isCompleted= !allTasks[btn.id].isCompleted
-    printTask()
-}
 
 var toggleTask = function (btn) {
     allTasks[btn.id].isCompleted=!allTasks[btn.id].isCompleted
