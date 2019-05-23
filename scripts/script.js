@@ -29,7 +29,6 @@ var printTask=function(){
     completed=document.getElementById('completed')
     completed.innerHTML=''
 
-
     allTasks.map(function(e, i){
         container=document.createElement('li')
         container.innerText=e.text
