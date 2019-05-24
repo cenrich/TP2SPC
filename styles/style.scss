@@ -55,15 +55,6 @@ header {
     }
 }
 
-.toggle {
-    background: url(../images/done_icon.svg);
-    background-size:cover;
-    height:20px;
-    width:20px;
-    background-color:red;
-    
-}
-
 .container {
     width: 100%;
     background: $task;
@@ -94,6 +85,8 @@ header {
                 margin: 0 10px 0 0;            
                 &:hover{
                     background: url(../images/remove_icon_hover.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
                     transition: 0.1s;
                 }
             }
