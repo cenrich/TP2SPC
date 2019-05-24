@@ -5,11 +5,13 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  font: 100% "Roboto", sans-serif 20px; }
+  font: 100% "Roboto", sans-serif 20px;
+}
 
 body {
   width: 100%;
-  background: #EEEEF7; }
+  background: #EEEEF7;
+}
 
 header {
   display: flex;
@@ -18,31 +20,85 @@ header {
   padding: 15px;
   z-index: 5;
   background: #BC3B69;
-  border-radius: 0 0 10px 10px none; }
-  header input {
-    width: 98%;
-    height: 50px;
-    color: #ffffff;
-    background: #dd99b1;
-    border-radius: 5px 0 0 5px; }
-  header ::placeholder {
-    color: #ffffff;
-    font: "Roboto", sans-serif 20px;
-    padding: 0 0 0 5px; }
-  header button {
-    width: 50px;
-    background: #BC3B69;
-    border-radius: 5px; }
-  header button img {
-    width: 90%;
-    height: 50px;
-    float: left;
-    margin: 0 0 0 2px;
-    border-radius: 25px;
-    background: #ffffff; }
+  border-radius: 0 0 10px 10px none;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+header #item {
+  width: 98%;
+  height: 50px;
+  color: #ffffff;
+  background: #dd99b1;
+  border-radius: 5px 0 0 5px;
+  padding: 0 0 0 10px;
+}
+header ::placeholder {
+  color: #ffffff;
+  font: "Roboto", sans-serif 20px;
+}
+header #add {
+  width: 50px;
+  background: #BC3B69;
+  border-radius: 5px;
+}
+header #add img {
+  width: 90%;
+  height: 50px;
+  float: left;
+  margin: 0 0 0 2px;
+  border-radius: 25px;
+  background: #ffffff;
+}
 
 .container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 90px;
+  margin: 1% auto;
+  background: #EEEEF7;
   width: 98%;
-  background: #ffffff; }
+}
+
+li.empty {
+  background-color: #dd99b1;
+}
+
+ul > li {
+  background-color: #ffffff;
+  margin: 0 0 10px 0;
+  padding: 0 0 0 5%;
+  overflow: hidden;
+}
+
+.button {
+  float: right;
+  padding-right: 2%;
+}
+.button .remove {
+  background: url(../images/remove_icon.svg);
+  background-position: center;
+  width: 50px;
+  height: 20px;
+  margin: 0 10x 0 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.button .remove:hover {
+  background: url(../images/remove_icon_hover.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: 0.1s;
+  background-position: center;
+}
+.button .toggle {
+  background: url(../images/done_icon.svg);
+  width: 50px;
+  height: 20px;
+  margin: 0 10px 0 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 2% auto solid #BC3B69;
+}
 
 /*# sourceMappingURL=style.css.map */
