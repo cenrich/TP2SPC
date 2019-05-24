@@ -13,10 +13,12 @@ $font: 'Roboto', sans-serif 20px;
     box-sizing: border-box;
     font: 100% $font;
 }
+
 body {
     width: 100%;
     background: $document;
 }
+
 header {
     display: flex;
     width: 100%;
@@ -37,9 +39,8 @@ header {
     ::placeholder{
         color: $task;
         font: $font;
-        padding: 0 0 0 5px;
     }
-    button{
+    #add{
         width: 50px;
         position: absolute;
         top: 15px;
@@ -66,10 +67,18 @@ header {
 .container {
     width: 100%;
     background: $task;
+    // display: flex;
+    // flex-direction: column;
+    // padding-top: 90px; 
+    // margin: 1% auto;
+    li.empty{
+        background-color:$input_color; 
+        }
     li{
         overflow: hidden;
         padding: 10px 15px;
         margin: 10px 5px;
+        background-color:$task;
         border: 1px solid #ccc;
         border-radius: 50px;
         .button{
@@ -77,21 +86,26 @@ header {
             width: 10%;    
             .remove{
                 background: url(../images/remove_icon.svg);
-                background-size: contain;
                 background-repeat: no-repeat;
-                width: 30px;
-                height: 15px;
-                margin-left:10px;
+                background-size: contain;
+                background-position: center;
+                width: 50px;
+                height: 20px;
+                margin: 0 10px 0 0;            
+                &:hover{
+                    background: url(../images/remove_icon_hover.svg);
+                    transition: 0.1s;
+                }
             }
             .toggle{
                 background: url(../images/done_icon.svg);
-                background-size: contain;
                 background-repeat: no-repeat;
-                width: 20px;
-                height: 10px;
-                // border:2px solid $elements;
-                // border-radius: 50%;
-            }
+                background-size: contain;
+                width: 50px;
+                height: 20px;
+                margin: 0 10px 0 0;        
+                border-radius: 2% auto solid $elements;
+            }    
         }
         p{
             float:left;
