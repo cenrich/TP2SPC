@@ -1,15 +1,15 @@
 var allTasks=[]
 var completed, containerButtons, item, listItem, listItemContent, newTask, toDo
 
-var dateToDo= function () {
-    var m = new Date();
-    var dateString =
-        ("0" + m.getUTCDate()).slice(-2) + "/" +
-        ("0" + (m.getUTCMonth()+1)).slice(-2)+ "/" +
-        m.getUTCFullYear() ;
-    var date=document.getElementById("date")
-    date.innerText=dateString
-}
+// var dateToDo= function () {
+//     var m = new Date();
+//     var dateString =
+//         ("0" + m.getUTCDate()).slice(-2) + "/" +
+//         ("0" + (m.getUTCMonth()+1)).slice(-2)+ "/" +
+//         m.getUTCFullYear() ;
+//     var date=document.getElementById("date")
+//     date.innerText=dateString
+// }
 
 var textWhenEmpty = function (list, textEmpty) {
     if (list.getElementsByTagName("li").length < 1) {
