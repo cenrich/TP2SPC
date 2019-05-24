@@ -10,26 +10,28 @@
 
 body {
   width: 100%;
-  background: #EEEEF7;
+  background: #edf0f1;
 }
 
 header {
-  display: flex;
   width: 100%;
   height: 80px;
   padding: 15px;
-  z-index: 5;
   background: #BC3B69;
   border-radius: 0 0 10px 10px;
-  position: relative;
+  position: fixed;
 }
 header input {
   width: 98%;
   height: 50px;
   color: #ffffff;
-  background: #dd99b1;
+  background: #b8618a;
   border-radius: 5px;
   padding: 10px 15px;
+}
+header input:focus {
+  outline: none;
+  background: #caa9b9;
 }
 header ::placeholder {
   color: #ffffff;
@@ -47,14 +49,23 @@ header #add {
   background-position: 50%;
   border-radius: 50%;
   background-color: #fff;
+  cursor: pointer;
 }
 
 .container {
   width: 100%;
-  background: #ffffff;
+  padding-top: 120px;
+}
+.container hr {
+  margin: 30px auto;
+  border-top: 1px solid #aaa;
+  width: 30%;
 }
 .container li.empty {
-  background-color: #dd99b1;
+  text-align: center;
+  color: #aaa;
+  background-color: #edf0f1;
+  border: none;
 }
 .container li {
   overflow: hidden;
@@ -73,7 +84,7 @@ header #add {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  width: 50px;
+  width: 30%;
   height: 20px;
   margin: 0 10px 0 0;
 }
@@ -87,7 +98,7 @@ header #add {
   background: url(../images/done_icon.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  width: 50px;
+  width: 30%;
   height: 20px;
   margin: 0 10px 0 0;
   border-radius: 2% auto solid #BC3B69;

@@ -1,8 +1,10 @@
-$document: #EEEEF7;
+$document: #edf0f1;
 $elements: #BC3B69;
 $task: #ffffff;
 $task_text: #000000;
-$input_color: #dd99b1;
+$input_color: #b8618a;
+$lighter_input:rgb(202, 169, 185);
+$empty_color:#aaa;
 $font: 'Roboto', sans-serif 20px;
 *{
     margin: 0;
@@ -20,14 +22,12 @@ body {
 }
 
 header {
-    display: flex;
     width: 100%;
     height: 80px;
     padding: 15px;
-    z-index: 5;
     background: $elements;
     border-radius: 0 0 10px 10px;
-    position: relative;
+    position: fixed;
     input {
         width: 98%;
         height: 50px;
@@ -35,6 +35,10 @@ header {
         background:$input_color;
         border-radius: 5px;
         padding: 10px 15px;
+        &:focus {
+            outline:none;
+            background:$lighter_input;
+        }
     }
     ::placeholder{
         color: $task;
@@ -52,20 +56,28 @@ header {
         background-position: 50%;
         border-radius:  50%;
         background-color: #fff;
+        cursor:pointer;
     }
 }
 
 .container {
     width: 100%;
-    background: $task;
-    // display: flex;
-    // flex-direction: column;
-    // padding-top: 90px; 
-    // margin: 1% auto;
+    padding-top: 120px; 
+
+    hr {
+        margin:30px auto; 
+        border-top: 1px solid $empty_color;
+        width:30%;
+    }
+
     li.empty{
-        background-color:$input_color; 
+        text-align: center;
+        color: $empty_color;
+        background-color: $document;
+        border:none;
         }
-    li{
+
+        li{
         overflow: hidden;
         padding: 10px 15px;
         margin: 10px 5px;
@@ -80,7 +92,7 @@ header {
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center;
-                width: 50px;
+                width: 30%;
                 height: 20px;
                 margin: 0 10px 0 0;            
                 &:hover{
@@ -94,7 +106,7 @@ header {
                 background: url(../images/done_icon.svg);
                 background-repeat: no-repeat;
                 background-size: contain;
-                width: 50px;
+                width: 30%;
                 height: 20px;
                 margin: 0 10px 0 0;        
                 border-radius: 2% auto solid $elements;

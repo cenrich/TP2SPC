@@ -1,5 +1,5 @@
 var allTasks=[]
-var completed, containerButtons, item, listItem, listItemContent, newTask, toDo
+var btn, completed, containerButtons, item, listItem, listItemContent, newTask, toDo
 
 // var dateToDo= function () {
 //     var m = new Date();
@@ -72,8 +72,8 @@ var printTask=function(){
         task.isCompleted? completed.appendChild (createLi(task,index)) : toDo.appendChild (createLi(task,index))
     })
 
-    textWhenEmpty(toDo, '¡No tienes tareas pendientes!')
-    textWhenEmpty(completed, 'No hay tareas completadas.')
+    textWhenEmpty(toDo, '¡No tenés tareas pendientes!')
+    textWhenEmpty(completed, 'No hay tareas terminadas.')
 }
 
 var addTask=function(){
