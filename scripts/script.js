@@ -1,5 +1,5 @@
 var allTasks=[]
-var completed, containerButtons, item, listItem, newTask, toDo
+var completed, containerButtons, item, listItem, newTask, toDo, task
 
 var textWhenEmpty = function (list, textEmpty) {
     if (list.getElementsByTagName("li").length < 1) {
@@ -8,7 +8,7 @@ var textWhenEmpty = function (list, textEmpty) {
             text.innerText =textEmpty
             list.appendChild(text)
         }
-} 
+}
 
 var keyPress=function(event){
     if(event.code === 'Enter'){
@@ -26,10 +26,9 @@ var deleteTask=function (btn) {
     printTask()
 }
 
-var createButton=function(classBtn, name, index, btnFunction){
+var createButton=function(classBtn, index, btnFunction){
     btn=document.createElement('button')
     btn.classList.add(classBtn)
-    btn.innerText=name
     btn.id=index
     btn.onclick=function(){btnFunction(this)}
     return btn
@@ -37,14 +36,16 @@ var createButton=function(classBtn, name, index, btnFunction){
 
 var createLi = function (task,index) {
     listItem = document.createElement('li')
-    listItem.innerText=task.text
+    listItemContent=document.createElement('p')
+    listItemContent.innerText=task.text
 
     containerButtons=document.createElement('div')
     containerButtons.classList.add('button')
-    containerButtons.appendChild(createButton('toggle','toggle', index,toggleTask))
-    containerButtons.appendChild(createButton('remove','remove',index,deleteTask))
+    containerButtons.appendChild(createButton('toggle', index,toggleTask))
+    containerButtons.appendChild(createButton('remove',index,deleteTask))
     
     listItem.appendChild(containerButtons)
+    listItem.appendChild(listItemContent)
     return listItem
 }
 
@@ -60,7 +61,7 @@ var printTask=function(){
     })
 
     textWhenEmpty(toDo, '¡No tienes tareas pendientes!')
-    textWhenEmpty(completed, 'No hay tareas completas.')
+    textWhenEmpty(completed, 'No hay tareas completadas.')
 }
 
 var addTask=function(){
