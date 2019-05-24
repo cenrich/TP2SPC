@@ -1,5 +1,15 @@
 var allTasks=[]
-var completed, containerButtons, item, listItem, newTask, toDo
+var completed, containerButtons, item, listItem, listItemContent, newTask, toDo
+
+var dateToDo= function () {
+    var m = new Date();
+    var dateString =
+        ("0" + m.getUTCDate()).slice(-2) + "/" +
+        ("0" + (m.getUTCMonth()+1)).slice(-2)+ "/" +
+        m.getUTCFullYear() ;
+    var date=document.getElementById("date")
+    date.innerText=dateString
+}
 
 var textWhenEmpty = function (list, textEmpty) {
     if (list.getElementsByTagName("li").length < 1) {
@@ -26,10 +36,10 @@ var deleteTask=function (btn) {
     printTask()
 }
 
-var createButton=function(classBtn, name, index, btnFunction){
+var createButton=function(classBtn, index, btnFunction){
     btn=document.createElement('button')
     btn.classList.add(classBtn)
-    btn.innerText=name
+    
     btn.id=index
     btn.onclick=function(){btnFunction(this)}
     return btn
@@ -37,13 +47,16 @@ var createButton=function(classBtn, name, index, btnFunction){
 
 var createLi = function (task,index) {
     listItem = document.createElement('li')
-    listItem.innerText=task.text
-
+    
+    listItemContent=document.createElement('p')
+    listItemContent.innerText=task.text
+    
     containerButtons=document.createElement('div')
     containerButtons.classList.add('button')
-    containerButtons.appendChild(createButton('toggle','toggle', index,toggleTask))
-    containerButtons.appendChild(createButton('remove','remove',index,deleteTask))
+    containerButtons.appendChild(createButton('toggle', index,toggleTask))
+    containerButtons.appendChild(createButton('remove',index,deleteTask))
     
+    listItem.appendChild(listItemContent)
     listItem.appendChild(containerButtons)
     return listItem
 }
