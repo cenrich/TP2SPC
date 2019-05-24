@@ -18,7 +18,7 @@ var textWhenEmpty = function (list, textEmpty) {
             text.innerText =textEmpty
             list.appendChild(text)
         }
-} 
+}
 
 var keyPress=function(event){
     if(event.code === 'Enter'){
@@ -39,7 +39,6 @@ var deleteTask=function (btn) {
 var createButton=function(classBtn, index, btnFunction){
     btn=document.createElement('button')
     btn.classList.add(classBtn)
-    
     btn.id=index
     btn.onclick=function(){btnFunction(this)}
     return btn
@@ -58,6 +57,7 @@ var createLi = function (task,index) {
     
     listItem.appendChild(listItemContent)
     listItem.appendChild(containerButtons)
+
     return listItem
 }
 
@@ -73,7 +73,7 @@ var printTask=function(){
     })
 
     textWhenEmpty(toDo, '¡No tienes tareas pendientes!')
-    textWhenEmpty(completed, 'No hay tareas completas.')
+    textWhenEmpty(completed, 'No hay tareas completadas.')
 }
 
 var addTask=function(){
