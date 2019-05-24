@@ -100,5 +100,8 @@ ul >li {
         background-size: contain;
         border-radius: 2% auto solid $elements;
     }
+    #completed{
+        background-color: $elements;
+    }
 }
 
