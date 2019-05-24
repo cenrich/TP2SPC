@@ -15,6 +15,10 @@ var keyPress=function(event){
         addTask()
     }
 }
+var toggleTask=function(btn){
+    allTasks[btn.id].isCompleted= !allTasks[btn.id].isCompleted
+    printTask()
+}
 
 var toggleTask = function (btn) {
     allTasks[btn.id].isCompleted=!allTasks[btn.id].isCompleted
@@ -26,9 +30,10 @@ var deleteTask=function (btn) {
     printTask()
 }
 
-var createButton=function(classBtn, index, btnFunction){
+var createButton=function(classBtn, name, index, btnFunction){
     btn=document.createElement('button')
     btn.classList.add(classBtn)
+    btn.innerText=name
     btn.id=index
     btn.onclick=function(){btnFunction(this)}
     return btn
