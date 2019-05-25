@@ -1,8 +1,10 @@
-$document: #EEEEF7;
+$document: #edf0f1;
 $elements: #BC3B69;
 $task: #ffffff;
 $task_text: #000000;
-$input_color: #dd99b1;
+$input_color: #b8618a;
+$lighter_input:rgb(202, 169, 185);
+$empty_color:#aaa;
 $font: 'Roboto', sans-serif 20px;
 *{
     margin: 0;
@@ -13,95 +15,111 @@ $font: 'Roboto', sans-serif 20px;
     box-sizing: border-box;
     font: 100% $font;
 }
+
 body {
     width: 100%;
     background: $document;
 }
+
 header {
-    display: flex;
     width: 100%;
     height: 80px;
     padding: 15px;
-    z-index: 5;
     background: $elements;
-    border-radius: 0 0 10px 10px none;
+    border-radius: 0 0 10px 10px;
     position: fixed;
-    right: 0;
-    top:0;
-    #item{
+    input {
         width: 98%;
         height: 50px;
         color: $task;
         background:$input_color;
-        border-radius: 5px 0 0 5px;
-        padding: 0 0 0 10px;
-        resize:vertical;
+        border-radius: 5px;
+        padding: 10px 15px;
+        &:focus {
+            outline:none;
+            background:$lighter_input;
+        }
     }
     ::placeholder{
         color: $task;
-        font: $font;
+        font-family: $font;
     }
     #add{
-        width: 50px;
-        background: $elements;
-        border-radius:  5px;
-    }
-    #add img{
-        width: 90%;
         height: 50px;
-        float: left;
-        margin: 0 0 0 2px;
-        border-radius: 25px;
-        background:$task;
-    }
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    padding-top: 90px; 
-    margin: 1% auto;
-    background: $document;
-    width:98%;
-}
-li.empty{
-    background-color:$input_color; 
-    }
-ul >li {
-    background-color:$task;
-    margin: 0 0 10px 0;
-    padding: 0 0 0 5%;
-    overflow: hidden;
-}
-.button{
-    float: right;
-    padding-right: 2%;
-    .remove{
-        background: url(../images/remove_icon.svg);
-        background-position: center;
         width: 50px;
-        height: 20px;
-        margin: 0 10x 0 0;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-image: url(../images/add_icon.svg);
+        background-size: 40%;
         background-repeat: no-repeat;
-        background-size: contain;
-    }
-    .remove:hover{
-        background: url(../images/remove_icon_hover.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        transition: 0.1s;
-        background-position: center;
-           }
-    .toggle{
-        background: url(../images/done_icon.svg);
-        width: 50px;
-        height: 20px;
-        margin: 0 10px 0 0;        
-        background-repeat: no-repeat;
-        background-size: contain;
-        border-radius: 2% auto solid $elements;
-    }
-    #completed{
-        background-color: $elements;
+        background-position: 50%;
+        border-radius:  50%;
+        background-color: #fff;
+        cursor:pointer;
     }
 }
 
+.container {
+    width: 100%;
+    padding-top: 120px; 
+
+    hr {
+        margin:30px auto; 
+        border-top: 1px solid $empty_color;
+        width:30%;
+    }
+
+    li.empty{
+        text-align: center;
+        color: $empty_color;
+        background-color: $document;
+        border:none;
+        }
+
+        li{
+        overflow: hidden;
+        padding: 10px 15px;
+        margin: 10px 5px;
+        background-color:$task;
+        border: 1px solid #ccc;
+        border-radius: 50px;
+        .button{
+            float: right; 
+            width: 10%;    
+            .remove{
+                background: url(../images/remove_icon.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                width: 30%;
+                height: 20px;
+                margin: 0 10px 0 0;            
+                &:hover{
+                    background: url(../images/remove_icon_hover.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    transition: 0.1s;
+                }
+            }
+            .toggle{
+                background: url(../images/done_icon.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                width: 30%;
+                height: 20px;
+                margin: 0 10px 0 0;        
+                border-radius: 50%;
+                border: solid $elements;
+                        }   
+            .completed{
+                background-color: $elements;
+            } 
+        }
+        p{
+            float:left;
+            width: 90%;
+        }
+    }
+}
