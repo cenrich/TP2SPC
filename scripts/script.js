@@ -1,5 +1,15 @@
 var allTasks=[]
-var completed, containerButtons, item, listItem, newTask, toDo, task
+var btn, completed, containerButtons, item, listItem, listItemContent, newTask, toDo
+
+// var dateToDo= function () {
+//     var m = new Date();
+//     var dateString =
+//         ("0" + m.getUTCDate()).slice(-2) + "/" +
+//         ("0" + (m.getUTCMonth()+1)).slice(-2)+ "/" +
+//         m.getUTCFullYear() ;
+//     var date=document.getElementById("date")
+//     date.innerText=dateString
+// }
 
 var textWhenEmpty = function (list, textEmpty) {
     if (list.getElementsByTagName("li").length < 1) {
@@ -36,16 +46,18 @@ var createButton=function(classBtn, index, btnFunction){
 
 var createLi = function (task,index) {
     listItem = document.createElement('li')
+    
     listItemContent=document.createElement('p')
     listItemContent.innerText=task.text
-
+    
     containerButtons=document.createElement('div')
     containerButtons.classList.add('button')
     containerButtons.appendChild(createButton('toggle', index,toggleTask))
     containerButtons.appendChild(createButton('remove',index,deleteTask))
     
-    listItem.appendChild(containerButtons)
     listItem.appendChild(listItemContent)
+    listItem.appendChild(containerButtons)
+
     return listItem
 }
 
@@ -60,8 +72,8 @@ var printTask=function(){
         task.isCompleted? completed.appendChild (createLi(task,index)) : toDo.appendChild (createLi(task,index))
     })
 
-    textWhenEmpty(toDo, '¡No tienes tareas pendientes!')
-    textWhenEmpty(completed, 'No hay tareas completadas.')
+    textWhenEmpty(toDo, '¡No tenés tareas pendientes!')
+    textWhenEmpty(completed, 'No hay tareas terminadas.')
 }
 
 var addTask=function(){
