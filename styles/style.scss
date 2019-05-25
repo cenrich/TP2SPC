@@ -13,7 +13,7 @@ $font: 'Roboto', sans-serif 20px;
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
-    font: 100% $font;
+    font-family: $font;
 }
 
 body {
@@ -34,7 +34,7 @@ header {
         color: $task;
         background:$input_color;
         border-radius: 5px;
-        padding: 10px 15px;
+        padding: 10px 40px 10px 15px;
         &:focus {
             outline:none;
             background:$lighter_input;
@@ -42,12 +42,7 @@ header {
     }
     ::placeholder{
         color: $task;
-<<<<<<< HEAD
-        font: $font;
-=======
-        font-family: $font;
->>>>>>> c1fbe8f7bda56c199296fefcb53401d5f1f11f12
-    }
+    }    
     #add{
         height: 50px;
         width: 50px;
@@ -67,27 +62,25 @@ header {
 .container {
     width: 100%;
     padding-top: 120px; 
-
     hr {
         margin:30px auto; 
         border-top: 1px solid $empty_color;
         width:30%;
     }
-
-    li.empty{
-        text-align: center;
-        color: $empty_color;
-        background-color: $document;
-        border:none;
-        }
-
-        li{
+    li{
         overflow: hidden;
         padding: 10px 15px;
         margin: 10px 5px;
         background-color:$task;
-        border: 1px solid #ccc;
-        border-radius: 50px;
+        border-radius: 5px;
+        box-shadow: 1px 2px $empty_color;
+        &.empty{
+            text-align: center;
+            color: $empty_color;
+            background-color: $document;
+            border:none;
+            box-shadow: none;
+        }
         .button{
             float: right; 
             width: 10%;    
@@ -119,6 +112,6 @@ header {
         p{
             float:left;
             width: 90%;
-        }
+        }        
     }
 }
