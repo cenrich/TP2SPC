@@ -1,3 +1,4 @@
+/*variables*/
 $document: #edf0f1;
 $elements: #BC3B69;
 $task: #ffffff;
@@ -6,6 +7,9 @@ $input_color: #b8618a;
 $lighter_input:rgb(202, 169, 185);
 $empty_color:#aaa;
 $font: 'Roboto', sans-serif 20px;
+
+/*mixins*/
+
 *{
     margin: 0;
     padding: 0;
@@ -62,7 +66,7 @@ header {
 
 .container {
     width: 100%;
-    padding-top: 120px; 
+    padding-top: 90px; 
 
     hr {
         margin:30px auto; 
@@ -110,11 +114,25 @@ header {
                 height: 20px;
                 margin: 0 10px 0 0;        
                 border-radius: 2% auto solid $elements;
-            }    
+            }
+                
+        }
+        #completed li .toggle {
+            background-color: $elements;
+            background: url(../images/done_icon_white.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 30%;
+            height: 20px;
+            margin: 0 10px 0 0;        
+            border-radius: 2% auto solid $elements;
         }
         p{
             float:left;
-            width: 90%;
+            max-width: 80%;
+            overflow: hidden;
+            margin: 3vh;
+            word-break: break-all;
         }
     }
 }

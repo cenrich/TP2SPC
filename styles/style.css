@@ -1,3 +1,5 @@
+/*variables*/
+/*mixins*/
 * {
   margin: 0;
   padding: 0;
@@ -54,7 +56,7 @@ header #add {
 
 .container {
   width: 100%;
-  padding-top: 120px;
+  padding-top: 90px;
 }
 .container hr {
   margin: 30px auto;
@@ -96,6 +98,16 @@ header #add {
 }
 .container li .button .toggle {
   background: url(../images/done_icon.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 30%;
+  height: 20px;
+  margin: 0 10px 0 0;
+  border-radius: 2% auto solid #BC3B69;
+}
+.container li #completed li .toggle {
+  background-color: #BC3B69;
+  background: url(../images/done_icon_white.svg);
   background-repeat: no-repeat;
   background-size: contain;
   width: 30%;
