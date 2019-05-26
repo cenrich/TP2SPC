@@ -17,7 +17,7 @@ $font: 'Roboto', sans-serif 20px;
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
-    font: 100% $font;
+    font-family: $font;
 }
 
 body {
@@ -38,7 +38,7 @@ header {
         color: $task;
         background:$input_color;
         border-radius: 5px;
-        padding: 10px 15px;
+        padding: 10px 40px 10px 15px;
         &:focus {
             outline:none;
             background:$lighter_input;
@@ -46,8 +46,7 @@ header {
     }
     ::placeholder{
         color: $task;
-        font-family: $font;
-    }
+    }    
     #add{
         height: 50px;
         width: 50px;
@@ -66,42 +65,43 @@ header {
 
 .container {
     width: 100%;
-    padding-top: 90px; 
-
+    padding-top: 120px; 
     hr {
         margin:30px auto; 
         border-top: 1px solid $empty_color;
         width:30%;
     }
-
-    li.empty{
-        text-align: center;
-        color: $empty_color;
-        background-color: $document;
-        border:none;
-        }
-
-        li{
+    li{
         overflow: hidden;
         padding: 10px 15px;
         margin: 10px 5px;
         background-color:$task;
-        border: 1px solid #ccc;
-        border-radius: 50px;
+        border-radius: 5px;
+        box-shadow: 1px 2px $empty_color;
+        &.empty{
+            text-align: center;
+            color: $empty_color;
+            background-color: $document;
+            border:none;
+            box-shadow: none;
+        }
         .button{
             float: right; 
             width: 10%;    
             .remove{
                 background: url(../images/remove_icon.svg);
                 background-repeat: no-repeat;
-                background-size: contain;
+                background-size: 45%;
                 background-position: center;
-                width: 30%;
+                width: 20px;
                 height: 20px;
-                margin: 0 10px 0 0;            
+                margin: 0 10px 0 0;     
+                border-radius: 50%;
+                border: 2px solid $empty_color;       
                 &:hover{
                     background: url(../images/remove_icon_hover.svg);
                     background-repeat: no-repeat;
+                    background-size: 45%;
                     background-position: center;
                     transition: 0.1s;
                 }
@@ -109,30 +109,39 @@ header {
             .toggle{
                 background: url(../images/done_icon.svg);
                 background-repeat: no-repeat;
-                background-size: contain;
-                width: 30%;
+                background-size: 45%;
+                background-position: center;
+                width: 20px;
                 height: 20px;
                 margin: 0 10px 0 0;        
-                border-radius: 2% auto solid $elements;
-            }
-                
-        }
-        #completed li .toggle {
-            background-color: $elements;
-            background: url(../images/done_icon_white.svg);
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 30%;
-            height: 20px;
-            margin: 0 10px 0 0;        
-            border-radius: 2% auto solid $elements;
+                border-radius: 50%;
+                border: 2px solid $elements;
+                &:hover{
+                    background: url(../images/done_icon_white.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 45%;
+                    background-color: $input_color;
+                    border-radius: 50%;
+                }
+            }    
         }
         p{
             float:left;
-            max-width: 80%;
-            overflow: hidden;
-            margin: 3vh;
-            word-break: break-all;
+            width: 90%;
+        }    
+    }
+    #completed{
+        p{
+            color: $empty_color;
+        }
+        .toggle{
+            background: url(../images/done_icon_white.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 45%;
+            background-color: $elements;
+            border-radius: 50%;
         }
     }
 }
