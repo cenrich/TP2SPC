@@ -82,30 +82,54 @@ header #add {
 .container li .button .remove {
   background: url(../images/remove_icon.svg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 45%;
   background-position: center;
-  width: 30%;
+  width: 20px;
   height: 20px;
   margin: 0 10px 0 0;
+  border-radius: 50%;
+  border: 2px solid #aaa;
 }
 .container li .button .remove:hover {
   background: url(../images/remove_icon_hover.svg);
   background-repeat: no-repeat;
+  background-size: 45%;
   background-position: center;
   transition: 0.1s;
 }
 .container li .button .toggle {
   background: url(../images/done_icon.svg);
   background-repeat: no-repeat;
-  background-size: contain;
-  width: 30%;
+  background-size: 45%;
+  background-position: center;
+  width: 20px;
   height: 20px;
   margin: 0 10px 0 0;
-  border-radius: 2% auto solid #BC3B69;
+  border-radius: 50%;
+  border: 2px solid #BC3B69;
+}
+.container li .button .toggle:hover {
+  background: url(../images/done_icon_white.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 45%;
+  background-color: #b8618a;
+  border-radius: 50%;
 }
 .container li p {
   float: left;
   width: 90%;
+}
+.container #completed p {
+  color: #aaa;
+}
+.container #completed .toggle {
+  background: url(../images/done_icon_white.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 45%;
+  background-color: #BC3B69;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=style.css.map */

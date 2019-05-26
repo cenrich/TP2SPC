@@ -87,14 +87,17 @@ header {
             .remove{
                 background: url(../images/remove_icon.svg);
                 background-repeat: no-repeat;
-                background-size: contain;
+                background-size: 45%;
                 background-position: center;
-                width: 30%;
+                width: 20px;
                 height: 20px;
-                margin: 0 10px 0 0;            
+                margin: 0 10px 0 0;     
+                border-radius: 50%;
+                border: 2px solid $empty_color;       
                 &:hover{
                     background: url(../images/remove_icon_hover.svg);
                     background-repeat: no-repeat;
+                    background-size: 45%;
                     background-position: center;
                     transition: 0.1s;
                 }
@@ -102,16 +105,39 @@ header {
             .toggle{
                 background: url(../images/done_icon.svg);
                 background-repeat: no-repeat;
-                background-size: contain;
-                width: 30%;
+                background-size: 45%;
+                background-position: center;
+                width: 20px;
                 height: 20px;
                 margin: 0 10px 0 0;        
-                border-radius: 2% auto solid $elements;
+                border-radius: 50%;
+                border: 2px solid $elements;
+                &:hover{
+                    background: url(../images/done_icon_white.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 45%;
+                    background-color: $input_color;
+                    border-radius: 50%;
+                }
             }    
         }
         p{
             float:left;
             width: 90%;
-        }        
+        }    
+    }
+    #completed{
+        p{
+            color: $empty_color;
+        }
+        .toggle{
+            background: url(../images/done_icon_white.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 45%;
+            background-color: $elements;
+            border-radius: 50%;
+        }
     }
 }
