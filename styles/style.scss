@@ -1,27 +1,41 @@
-/*npm install -g sass, luego sass styles/style.scss style/style.css --watch*/
+/*npm install -g sass, luego sass styles/style.scss styles/style.css --watch*/
 $document: #edf0f1;
 $elements: #BC3B69;
 $task: #ffffff;
 $task_text: #000000;
 $input_color: #b8618a;
-$lighter_input:#ff99c2;
+$lighter_input:#caa;
 $empty_color:#aaa;
 $font: 'Roboto', sans-serif 20px;
+$more_less_image: no-repeat;
+$without: none;
+$positioning_element: center;
+@mixin actions {
+    background-repeat: $more_less_image;
+    background-position: $positioning_element;
+    background-size: 45%;
+    margin: 0 10px 0 0;  
+    height: 20px
+}
+@mixin hovers{
+    background-repeat: $more_less_image;
+    background-position: $positioning_element;
+    background-size: 45%;
+}
 *{
     margin: 0;
     padding: 0;
     border: 0;
-    list-style: none;
-    text-decoration: none;
+    list-style: $without;
+    text-decoration: $without;
     box-sizing: border-box;
-    font: 100% $font;
+    font-family: $font;
 }
 
 body {
     width: 100%;
     background: $document;
 }
-
 header {
     width: 100%;
     height: 80px;
@@ -37,14 +51,14 @@ header {
         border-radius: 5px;
         padding: 10px 40px 10px 15px;
         &:focus {
-            outline:none;
+            outline:$without;
             background:$lighter_input;
         }
     }
     ::placeholder{
-        color: $task;    
-    }
-    button{
+        color: $task;
+    }    
+    #add{
         height: 50px;
         width: 50px;
         position: absolute;
@@ -52,18 +66,16 @@ header {
         right: 15px;
         background-image: url(../images/add_icon.svg);
         background-size: 40%;
-        background-repeat: no-repeat;
+        background-repeat: $more_less_image;
         background-position: 50%;
         border-radius:  50%;
-        background-color: #fff;
+        background-color:$task;
         cursor:pointer;
     }
 }
-
 .container {
     width: 100%;
     padding-top: 120px; 
-
     hr {
         margin:30px auto; 
         border-top: 1px solid $empty_color;
@@ -77,72 +89,52 @@ header {
         border-radius: 5px;
         box-shadow: 1px 2px $empty_color;
         &.empty{
-            text-align: center;
+            text-align: $positioning_element;
             color: $empty_color;
             background-color: $document;
-            border:none;
-            box-shadow: none;
+            border:$without;
+            box-shadow: $without;
         }
-            .button{
-                float: right; 
-                width: 10%;    
-                .remove{
-                    background: url(../images/remove_icon.svg);
-                    background-repeat: no-repeat;
-                    background-size: 45%;
-                    background-position: center;
-                    width: 20px;
-                    height: 20px;
-                    margin: 0 10px 0 0; 
-                    border-radius: 50%;
-                    border: 2px solid $empty_color;               
-                    &:hover{
-                        background: url(../images/remove_icon_hover.svg);
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-size: 45%;
-                        transition: 0.1s;
-                    }
+        .button{
+            float: right; 
+            width: 10%;    
+            @media only screen and (min-width: 320px) and (max-width: 800px){
+                display: inline-block;
+                align-items: center;
                 }
+            }
+            
+            .remove{
+                background: url(../images/remove_icon.svg);
+                width: 30px;
+                @include actions;
+                &:hover{
+                    background: url(../images/remove_icon_hover.svg);
+                    transition: 0.1s;
+                    @include hovers;
+                }
+            }
             .toggle{
                 background: url(../images/done_icon.svg);
-                background-repeat: no-repeat;
-                background-size: 45%;
-                background-position: center;
-                background-color: $input_color;
                 width: 20px;
-                height: 20px;
-                margin: 0 10px 0 0;       
                 border-radius: 50%;
                 border: 2px solid $elements;
+                @include actions;
                 &:hover{
                     background: url(../images/done_icon_white.svg);
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: 45%;
                     background-color: $input_color;
                     border-radius: 50%;
+                    @include hovers;
                 }
             }    
         }
-                 
         p{
             float:left;
             width: 90%;
+        }    
+    }
+    #completed{
+        p{
+            color: $empty_color;
         }
     }
-#completed{
-    p{
-        color:$empty_color;
-    }
-}
-    .toggle{
-        background: url(../images/done_icon_white.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 45%;
-        background-color: $elements;
-        border-radius: 50%;
-        }
-    }
-

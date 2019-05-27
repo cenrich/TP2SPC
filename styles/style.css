@@ -1,3 +1,4 @@
+/*npm install -g sass, luego sass styles/style.scss styles/style.css --watch*/
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +6,7 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  font: 100% "Roboto", sans-serif 20px;
+  font-family: "Roboto", sans-serif 20px;
 }
 
 body {
@@ -27,15 +28,14 @@ header input {
   color: #ffffff;
   background: #b8618a;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 10px 40px 10px 15px;
 }
 header input:focus {
   outline: none;
-  background: #caa9b9;
+  background: #caa;
 }
 header ::placeholder {
   color: #ffffff;
-  font-family: "Roboto", sans-serif 20px;
 }
 header #add {
   height: 50px;
@@ -48,7 +48,7 @@ header #add {
   background-repeat: no-repeat;
   background-position: 50%;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #ffffff;
   cursor: pointer;
 }
 
@@ -61,56 +61,73 @@ header #add {
   border-top: 1px solid #aaa;
   width: 30%;
 }
-.container li.empty {
-  text-align: center;
-  color: #aaa;
-  background-color: #edf0f1;
-  border: none;
-}
 .container li {
   overflow: hidden;
   padding: 10px 15px;
   margin: 10px 5px;
   background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 50px;
+  border-radius: 5px;
+  box-shadow: 1px 2px #aaa;
+}
+.container li.empty {
+  text-align: center;
+  color: #aaa;
+  background-color: #edf0f1;
+  border: none;
+  box-shadow: none;
 }
 .container li .button {
   float: right;
   width: 10%;
 }
-.container li .button .remove {
+@media only screen and (min-width: 320px) and (max-width: 800px) {
+  .container li .button {
+    display: inline-block;
+    align-items: center;
+  }
+}
+.container li .remove {
   background: url(../images/remove_icon.svg);
+  width: 30px;
   background-repeat: no-repeat;
-  background-size: contain;
   background-position: center;
-  width: 30%;
-  height: 20px;
+  background-size: 45%;
   margin: 0 10px 0 0;
+  height: 20px;
 }
-.container li .button .remove:hover {
+.container li .remove:hover {
   background: url(../images/remove_icon_hover.svg);
-  background-repeat: no-repeat;
-  background-position: center;
   transition: 0.1s;
-}
-.container li .button .toggle {
-  background: url(../images/done_icon.svg);
   background-repeat: no-repeat;
-  background-size: contain;
   background-position: center;
-  width: 30%;
-  height: 20px;
-  margin: 0 10px 0 0;
+  background-size: 45%;
+}
+.container li .toggle {
+  background: url(../images/done_icon.svg);
+  width: 20px;
   border-radius: 50%;
-  border: solid #BC3B69;
+  border: 2px solid #BC3B69;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 45%;
+  margin: 0 10px 0 0;
+  height: 20px;
 }
-.container li .button .completed {
-  background-color: #BC3B69;
+.container li .toggle:hover {
+  background: url(../images/done_icon_white.svg);
+  background-color: #b8618a;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 45%;
 }
-.container li p {
+.container p {
   float: left;
   width: 90%;
+}
+
+#completed p {
+  color: #aaa;
 }
 
 /*# sourceMappingURL=style.css.map */
