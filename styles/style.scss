@@ -135,5 +135,8 @@ header {
             color: $empty_color;
             text-decoration: line-through;
         }
+        .toggle{
+            @include actions ($url_very_done,$elements,$elements, 60%, $btn2,$btn3);
+        }
     }
 }

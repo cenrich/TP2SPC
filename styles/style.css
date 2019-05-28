@@ -178,5 +178,22 @@ header #add {
   color: #aaa;
   text-decoration: line-through;
 }
+.container #completed .toggle {
+  background-image: url(../images/done_icon_white.svg);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #BC3B69;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  border: 2px solid #BC3B69;
+}
+@media only screen and (max-width: 390px) {
+  .container #completed .toggle {
+    width: 20px;
+    height: 20px;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
