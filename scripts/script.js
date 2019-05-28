@@ -1,29 +1,18 @@
 var allTasks=[]
 var btn, completed, containerButtons, item, listItem, listItemContent, newTask, toDo
 
-// var dateToDo= function () {
-//     var m = new Date();
-//     var dateString =
-//         ("0" + m.getUTCDate()).slice(-2) + "/" +
-//         ("0" + (m.getUTCMonth()+1)).slice(-2)+ "/" +
-//         m.getUTCFullYear() ;
-//     var date=document.getElementById("date")
-//     date.innerText=dateString
-// }
-
+//esta función medio inútil es para validar si imprime un textito cuando no hay tareas
 var textWhenEmpty = function (list, textEmpty) {
     if (list.getElementsByTagName("li").length < 1) {
-            var text = document.createElement("li")
-            text.classList.add ("empty")
-            text.innerText =textEmpty
-            list.appendChild(text)
+        var text = document.createElement("li")
+        text.classList.add ("empty")
+        text.innerText =textEmpty
+        list.appendChild(text)
         }
 }
 
 var keyPress=function(event){
-    if(event.code === 'Enter'){
-        addTask()
-    }
+    event.code === 'Enter'?addTask():false
 }
 
 var toggleTask = function (btn) {
@@ -54,7 +43,7 @@ var createLi = function (task,index) {
     containerButtons.classList.add('button')
     containerButtons.appendChild(createButton('toggle', index,toggleTask))
     containerButtons.appendChild(createButton('remove',index,deleteTask))
-    
+
     listItem.appendChild(listItemContent)
     listItem.appendChild(containerButtons)
 
@@ -72,7 +61,8 @@ var printTask=function(){
         task.isCompleted? completed.appendChild (createLi(task,index)) : toDo.appendChild (createLi(task,index))
     })
 
-    textWhenEmpty(toDo, '¡No tenés tareas pendientes!')
+    //este pedacito adicional imprime el textito cuando no hay tareas
+    textWhenEmpty(toDo, '¡No hay tareas pendientes!')
     textWhenEmpty(completed, 'No hay tareas terminadas.')
 }
 

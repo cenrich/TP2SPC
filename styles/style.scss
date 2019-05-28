@@ -6,12 +6,26 @@ $task_text: #000000;
 $input_color: #b8618a;
 $lighter_input:rgb(202, 169, 185);
 $empty_color:#aaa;
-$font: 'Roboto', sans-serif 20px;
+$btn1:50px;
+$btn2:20px;
+$url_add:url(../images/add_icon.svg);
+$url_remove:url(../images/remove_icon.svg);
+$url_remove_hover:url(../images/remove_icon_hover.svg);
+$url_done:url(../images/done_icon.svg);
+$url_very_done:url(../images/done_icon_white.svg);
 
 /*mixins*/
-
-
-
+@mixin botones ($url_btn,$bkg_color,$brd_color,$img_size,$btn_size) {
+    background-image: $url_btn;
+    width: $btn_size;
+    height: $btn_size;
+    border-radius: 50%;
+    background-color:$bkg_color;
+    background-repeat: no-repeat;
+    background-size: $img_size;
+    background-position: center;
+    border: 2px solid $brd_color;
+}
 
 *{
     margin: 0;
@@ -20,7 +34,7 @@ $font: 'Roboto', sans-serif 20px;
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: $font;
+    font-family: 'Roboto', sans-serif 20px;
 }
 
 body {
@@ -35,6 +49,7 @@ header {
     background: $elements;
     border-radius: 0 0 10px 10px;
     position: fixed;
+    
     input {
         width: 100%;
         height: 50px;
@@ -43,26 +58,22 @@ header {
         border-radius:5px 25px 25px 5px;
         margin:auto;
         padding: 10px 40px 10px 15px;
+
         &:focus {
             outline:none;
             background:$lighter_input;
         }
     }
+    
     ::placeholder{
         color: $task;
     }    
+    
     #add{
-        height: 50px;
-        width: 50px;
+        @include botones ($url_add,$task,$task,40%,$btn1);
         position: absolute;
         top: 15px;
         right: 15px;
-        background-image: url(../images/add_icon.svg);
-        background-size: 40%;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        border-radius:  50%;
-        background-color: #fff;
         cursor:pointer;
     }
 }
@@ -70,11 +81,13 @@ header {
 .container {
     width: 100%;
     padding-top: 120px; 
+    
     hr {
         margin:30px auto; 
         border-top: 1px solid $empty_color;
         width:30%;
     }
+    
     li{
         overflow: hidden;
         padding: 10px 15px;
@@ -82,6 +95,7 @@ header {
         background-color:$task;
         border-radius: 5px;
         box-shadow: 1px 2px $empty_color;
+    
         &.empty{
             text-align: center;
             color: $empty_color;
@@ -95,58 +109,37 @@ header {
             display:flex;
             justify-content: space-evenly;
             .remove{
-                background: url(../images/remove_icon.svg);
-                background-repeat: no-repeat;
-                background-size: 45%;
-                background-position: center;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                border: 2px solid $empty_color;       
+                @include botones ($url_remove,$task,$empty_color, 60%, $btn2);
+
                 &:hover{
-                    background: url(../images/remove_icon_hover.svg);
-                    background-repeat: no-repeat;
-                    background-size: 45%;
-                    background-position: center;
+                    @include botones ($url_remove_hover,$task,$empty_color, 45%, $btn2);
                     transition: 0.1s;
                 }
             }
+
             .toggle{
-                background: url(../images/done_icon.svg);
-                background-repeat: no-repeat;
-                background-size: 45%;
-                background-position: center;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                border: 2px solid $elements;
+                @include botones ($url_done,$task,$elements, 60%, $btn2);
+
                 &:hover{
-                    background: url(../images/done_icon_white.svg);
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: 45%;
-                    background-color: $input_color;
-                    border-radius: 50%;
+                    @include botones ($url_very_done,$input_color,$elements, 45%, $btn2);
                 }
             }    
         }
+
         p{
             float:left;
             width: 90%;
         }    
     }
+    
     #completed{
         p{
             color: $empty_color;
             text-decoration: line-through;
         }
+
         .toggle{
-            background: url(../images/done_icon_white.svg);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 45%;
-            background-color: $elements;
-            border-radius: 50%;
+            @include botones ($url_very_done,$elements,$elements, 60%, $btn2);
         }
     }
 }
