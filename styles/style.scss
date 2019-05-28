@@ -8,8 +8,6 @@ $input_color: #b8618a;
 $lighter_input: #caa;;
 $empty_color:#aaa;
 $more_less_image: no-repeat;
-$without: none;
-$positioning_element: center;
 $btn1:50px;
 $btn2:30px;
 $btn3:20px;
@@ -18,9 +16,8 @@ $url_remove:url(../images/remove_icon.svg);
 $url_remove_hover:url(../images/remove_icon_hover.svg);
 $url_done:url(../images/done_icon.svg);
 $url_very_done:url(../images/done_icon_white.svg);
-
 /*----------------Mixins-------------------------*/
-@mixin botones ($url_btn,$bkg_color,$brd_color,$img_size,$btn_size,$btn_size_s) {
+@mixin actions ($url_btn,$bkg_color,$brd_color,$img_size,$btn_size,$btn_size_s) {
     background-image: $url_btn;
     width: $btn_size;
     height: $btn_size;
@@ -35,7 +32,6 @@ $url_very_done:url(../images/done_icon_white.svg);
     height: $btn_size_s;
     }
 }
-
 *{
     margin: 0;
     padding: 0;
@@ -45,20 +41,17 @@ $url_very_done:url(../images/done_icon_white.svg);
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif 20px;
 }
-
 body {
     width: 100%;
     background: $document;
 }
-
 header {
     width: 100%;
     height: 80px;
     padding: 15px;
     background: $elements;
     border-radius: 0 0 10px 10px;
-    position: fixed;
-    
+    position: fixed;   
     input {
         width: 100%;
         height: 50px;
@@ -67,36 +60,30 @@ header {
         border-radius:5px 25px 25px 5px;
         margin:auto;
         padding: 10px 40px 10px 15px;
-
         &:focus {
             outline:none;
             background:$lighter_input;
         }
     }
-    
     ::placeholder{
         color: $task;
     }    
-    
     #add{
-        @include botones (url(../images/add_icon.svg),$task,$task,40%,$btn1, $btn1);
+        @include actions (url(../images/add_icon.svg),$task,$task,40%,$btn1, $btn1);
         position: absolute;
         top: 15px;
         right: 15px;
         cursor:pointer;
     }
 }
-
 .container {
     width: 100%;
-    padding-top: 120px; 
-    
+    padding-top: 120px;     
     hr {
         margin:30px auto; 
         border-top: 1px solid $empty_color;
         width:30%;
     }
-    
     li{
         overflow: hidden;
         padding: 10px 15px;
@@ -104,7 +91,6 @@ header {
         background-color:$task;
         border-radius: 5px;
         box-shadow: 1px 2px $empty_color;
-    
         &.empty{
             text-align: center;
             color: $empty_color;
@@ -112,7 +98,6 @@ header {
             border:none;
             box-shadow: none;
         }
-        
         .button{
             float: right; 
             width: 10%;    
@@ -124,40 +109,31 @@ header {
                 min-width: 55px;
                 min-height: $btn3;
             }
-
             .remove{
-                @include botones ($url_remove,$task,$empty_color, 60%, $btn2,$btn3);
-
+                @include actions ($url_remove,$task,$empty_color, 60%, $btn2,$btn3);
                 &:hover{
-                    @include botones ($url_remove_hover,$task,$empty_color, 45%, $btn2,$btn3);
+                    @include actions ($url_remove_hover,$task,$empty_color, 45%, $btn2,$btn3);
                     transition: 0.1s;
                 }
             }
-
             .toggle{
-                @include botones ($url_done,$task,$elements, 60%, $btn2,$btn3);
+                @include actions ($url_done,$task,$elements, 60%, $btn2,$btn3);
 
                 &:hover{
-                    @include botones ($url_very_done,$input_color,$elements, 45%, $btn2,$btn3);
+                    @include actions ($url_very_done,$input_color,$elements, 45%, $btn2,$btn3);
                 }
             }    
         }
-
         p{
             float:left;
             width: 80%;
             text-align: justify;
         }    
     }
-    
     #completed{
         p{
             color: $empty_color;
             text-decoration: line-through;
-        }
-
-        .toggle{
-            @include botones ($url_very_done,$elements,$elements, 60%, $btn2,$btn3);
         }
     }
 }
