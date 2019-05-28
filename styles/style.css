@@ -1,5 +1,6 @@
+/*npm install -g sass, luego sass styles/style.scss styles/style.css --watch*/
 /*variables*/
-/*mixins*/
+/*----------------Mixins-------------------------*/
 * {
   margin: 0;
   padding: 0;
@@ -34,7 +35,7 @@ header input {
 }
 header input:focus {
   outline: none;
-  background: #caa9b9;
+  background: #caa;
 }
 header ::placeholder {
   color: #ffffff;
@@ -53,6 +54,12 @@ header #add {
   top: 15px;
   right: 15px;
   cursor: pointer;
+}
+@media only screen and (max-width: 390px) {
+  header #add {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .container {
@@ -87,6 +94,12 @@ header #add {
   min-width: 70px;
   min-height: 30px;
 }
+@media only screen and (max-width: 390px) {
+  .container li .button {
+    min-width: 55px;
+    min-height: 20px;
+  }
+}
 .container li .button .remove {
   background-image: url(../images/remove_icon.svg);
   width: 30px;
@@ -97,6 +110,12 @@ header #add {
   background-size: 60%;
   background-position: center;
   border: 2px solid #aaa;
+}
+@media only screen and (max-width: 390px) {
+  .container li .button .remove {
+    width: 20px;
+    height: 20px;
+  }
 }
 .container li .button .remove:hover {
   background-image: url(../images/remove_icon_hover.svg);
@@ -110,6 +129,12 @@ header #add {
   border: 2px solid #aaa;
   transition: 0.1s;
 }
+@media only screen and (max-width: 390px) {
+  .container li .button .remove:hover {
+    width: 20px;
+    height: 20px;
+  }
+}
 .container li .button .toggle {
   background-image: url(../images/done_icon.svg);
   width: 30px;
@@ -121,6 +146,12 @@ header #add {
   background-position: center;
   border: 2px solid #BC3B69;
 }
+@media only screen and (max-width: 390px) {
+  .container li .button .toggle {
+    width: 20px;
+    height: 20px;
+  }
+}
 .container li .button .toggle:hover {
   background-image: url(../images/done_icon_white.svg);
   width: 30px;
@@ -131,6 +162,12 @@ header #add {
   background-size: 45%;
   background-position: center;
   border: 2px solid #BC3B69;
+}
+@media only screen and (max-width: 390px) {
+  .container li .button .toggle:hover {
+    width: 20px;
+    height: 20px;
+  }
 }
 .container li p {
   float: left;
@@ -151,6 +188,12 @@ header #add {
   background-size: 60%;
   background-position: center;
   border: 2px solid #BC3B69;
+}
+@media only screen and (max-width: 390px) {
+  .container #completed .toggle {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

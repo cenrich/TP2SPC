@@ -1,21 +1,26 @@
+/*npm install -g sass, luego sass styles/style.scss styles/style.css --watch*/
 /*variables*/
 $document: #edf0f1;
 $elements: #BC3B69;
 $task: #ffffff;
 $task_text: #000000;
 $input_color: #b8618a;
-$lighter_input:rgb(202, 169, 185);
+$lighter_input: #caa;;
 $empty_color:#aaa;
+$more_less_image: no-repeat;
+$without: none;
+$positioning_element: center;
 $btn1:50px;
 $btn2:30px;
+$btn3:20px;
 $url_add:url(../images/add_icon.svg);
 $url_remove:url(../images/remove_icon.svg);
 $url_remove_hover:url(../images/remove_icon_hover.svg);
 $url_done:url(../images/done_icon.svg);
 $url_very_done:url(../images/done_icon_white.svg);
 
-/*mixins*/
-@mixin botones ($url_btn,$bkg_color,$brd_color,$img_size,$btn_size) {
+/*----------------Mixins-------------------------*/
+@mixin botones ($url_btn,$bkg_color,$brd_color,$img_size,$btn_size,$btn_size_s) {
     background-image: $url_btn;
     width: $btn_size;
     height: $btn_size;
@@ -25,6 +30,10 @@ $url_very_done:url(../images/done_icon_white.svg);
     background-size: $img_size;
     background-position: center;
     border: 2px solid $brd_color;
+    @media only screen and (max-width:390px) {
+    width: $btn_size_s;
+    height: $btn_size_s;
+    }
 }
 
 *{
@@ -70,7 +79,7 @@ header {
     }    
     
     #add{
-        @include botones (url(../images/add_icon.svg),$task,$task,40%,$btn1);
+        @include botones (url(../images/add_icon.svg),$task,$task,40%,$btn1, $btn1);
         position: absolute;
         top: 15px;
         right: 15px;
@@ -111,21 +120,25 @@ header {
             justify-content: space-evenly;
             min-width: 70px;
             min-height: $btn2;
-        
+            @media only screen and (max-width:390px) {
+                min-width: 55px;
+                min-height: $btn3;
+            }
+
             .remove{
-                @include botones ($url_remove,$task,$empty_color, 60%, $btn2);
+                @include botones ($url_remove,$task,$empty_color, 60%, $btn2,$btn3);
 
                 &:hover{
-                    @include botones ($url_remove_hover,$task,$empty_color, 45%, $btn2);
+                    @include botones ($url_remove_hover,$task,$empty_color, 45%, $btn2,$btn3);
                     transition: 0.1s;
                 }
             }
 
             .toggle{
-                @include botones ($url_done,$task,$elements, 60%, $btn2);
+                @include botones ($url_done,$task,$elements, 60%, $btn2,$btn3);
 
                 &:hover{
-                    @include botones ($url_very_done,$input_color,$elements, 45%, $btn2);
+                    @include botones ($url_very_done,$input_color,$elements, 45%, $btn2,$btn3);
                 }
             }    
         }
@@ -144,7 +157,7 @@ header {
         }
 
         .toggle{
-            @include botones ($url_very_done,$elements,$elements, 60%, $btn2);
+            @include botones ($url_very_done,$elements,$elements, 60%, $btn2,$btn3);
         }
     }
 }
