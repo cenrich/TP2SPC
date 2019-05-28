@@ -7,7 +7,7 @@ $input_color: #b8618a;
 $lighter_input:rgb(202, 169, 185);
 $empty_color:#aaa;
 $btn1:50px;
-$btn2:30px;
+$btn2:20px;
 $url_add:url(../images/add_icon.svg);
 $url_remove:url(../images/remove_icon.svg);
 $url_remove_hover:url(../images/remove_icon_hover.svg);
@@ -70,7 +70,7 @@ header {
     }    
     
     #add{
-        @include botones ($url_add,$task,$task,40%,$btn1);
+        @include botones (url(../images/add_icon.svg),$task,$task,40%,$btn1);
         position: absolute;
         top: 15px;
         right: 15px;
@@ -109,6 +109,8 @@ header {
             width: 10%;    
             display:flex;
             justify-content: space-evenly;
+            min-width: 60px;
+            min-height: $btn2;
         
             .remove{
                 @include botones ($url_remove,$task,$empty_color, 60%, $btn2);
@@ -130,7 +132,7 @@ header {
 
         p{
             float:left;
-            width: 90%;
+            width: 80%;
             text-align: justify;
         }    
     }

@@ -84,11 +84,13 @@ header #add {
   width: 10%;
   display: flex;
   justify-content: space-evenly;
+  min-width: 60px;
+  min-height: 20px;
 }
 .container li .button .remove {
   background-image: url(../images/remove_icon.svg);
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #ffffff;
   background-repeat: no-repeat;
@@ -98,8 +100,8 @@ header #add {
 }
 .container li .button .remove:hover {
   background-image: url(../images/remove_icon_hover.svg);
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #ffffff;
   background-repeat: no-repeat;
@@ -110,8 +112,8 @@ header #add {
 }
 .container li .button .toggle {
   background-image: url(../images/done_icon.svg);
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #ffffff;
   background-repeat: no-repeat;
@@ -121,8 +123,8 @@ header #add {
 }
 .container li .button .toggle:hover {
   background-image: url(../images/done_icon_white.svg);
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #b8618a;
   background-repeat: no-repeat;
@@ -132,7 +134,7 @@ header #add {
 }
 .container li p {
   float: left;
-  width: 90%;
+  width: 80%;
   text-align: justify;
 }
 .container #completed p {
@@ -141,8 +143,8 @@ header #add {
 }
 .container #completed .toggle {
   background-image: url(../images/done_icon_white.svg);
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #BC3B69;
   background-repeat: no-repeat;
