@@ -7,7 +7,7 @@ $input_color: #b8618a;
 $lighter_input:rgb(202, 169, 185);
 $empty_color:#aaa;
 $btn1:50px;
-$btn2:20px;
+$btn2:30px;
 $url_add:url(../images/add_icon.svg);
 $url_remove:url(../images/remove_icon.svg);
 $url_remove_hover:url(../images/remove_icon_hover.svg);
@@ -109,7 +109,7 @@ header {
             width: 10%;    
             display:flex;
             justify-content: space-evenly;
-            min-width: 60px;
+            min-width: 70px;
             min-height: $btn2;
         
             .remove{
