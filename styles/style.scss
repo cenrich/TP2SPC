@@ -32,6 +32,10 @@ $url_very_done:url(../images/done_icon_white.svg);
     height: $btn_size_s;
     }
 }
+@mixin hover_coso ($url_btn,$bkg_color) {
+    background-image: $url_btn;
+    background-color:$bkg_color;
+}
 *{
     margin: 0;
     padding: 0;
@@ -112,7 +116,7 @@ header {
             .remove{
                 @include actions ($url_remove,$task,$empty_color, 60%, $btn2,$btn3);
                 &:hover{
-                    @include actions ($url_remove_hover,$task,$empty_color, 45%, $btn2,$btn3);
+                    @include hover_coso ($url_remove_hover,$task);
                     transition: 0.1s;
                 }
             }
@@ -120,7 +124,7 @@ header {
                 @include actions ($url_done,$task,$elements, 60%, $btn2,$btn3);
 
                 &:hover{
-                    @include actions ($url_very_done,$input_color,$elements, 45%, $btn2,$btn3);
+                    @include hover_coso ($url_very_done,$input_color);
                 }
             }    
         }
