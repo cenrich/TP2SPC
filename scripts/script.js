@@ -1,3 +1,4 @@
+//Chequear si realmente es necesario declarar todas las variables de manera global.
 var allTasks=[]
 var btn, completed, containerButtons, item, listItem, listItemContent, newTask, toDo
 
@@ -76,3 +77,5 @@ var addTask=function(){
     printTask()
     }
 }
+
+//Eliminar comentarios antes de mergear para lograr un cógido más limpio y prolijo.
